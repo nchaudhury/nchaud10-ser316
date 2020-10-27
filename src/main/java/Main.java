@@ -22,7 +22,7 @@ public class Main {
         System.out.println("bear 2 price " + bear2.price);
         
         System.out.println("bear 3 price workshop " +workshop.getCost(bear3));
-        System.out.println("bear 1 price " +bear3.price);
+        System.out.println("bear 3 price " +bear3.price);
         
         bear1.clothing.add(new Clothing());
         
