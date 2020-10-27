@@ -16,13 +16,13 @@ public class Main {
         workshop.addBear(bear3);
         workshop.addBear(bear1);
         
-        System.out.println(bear1.price);
+        System.out.println("bear 1 price " + bear1.price);
         
-        System.out.println(workshop.getCost(bear2));
-        System.out.println(bear2.price);
+        System.out.println("bear 2 price workshop.get " +workshop.getCost(bear2));
+        System.out.println("bear 2 price " + bear2.price);
         
-        System.out.println(workshop.getCost(bear3));
-        System.out.println(bear3.price);
+        System.out.println("bear 3 price workshop " +workshop.getCost(bear3));
+        System.out.println("bear 1 price " +bear3.price);
         
         bear1.clothing.add(new Clothing());
         
