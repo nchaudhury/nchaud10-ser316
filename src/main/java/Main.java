@@ -11,10 +11,15 @@ public class Main {
         Bear bear2 = new Bear(stuffing.BASE);
         Bear bear3 = new Bear(stuffing.DOWN);
         
+
+        
+        
         BearWorkshop workshop = new BearWorkshop("AZ");
         workshop.addBear(bear2);
         workshop.addBear(bear3);
         workshop.addBear(bear1);
+        
+        
         
         System.out.println("bear 1 price " + bear1.price);
         
