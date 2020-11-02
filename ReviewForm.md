@@ -1,4 +1,4 @@
-#CODE REVIEW
+# CODE REVIEW
 1.	Bearworkshop.java:59	Multiplies bear price by casing modifier – should add instead. 	FD	MJ
 2.	BearWorkshop.java:1	Missing header and banner 	CG 1	LOW
 3.	Casing.java:1	Missing class banner comment 	CG 2	LOW
