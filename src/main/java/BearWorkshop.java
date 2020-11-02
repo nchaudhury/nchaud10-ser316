@@ -56,7 +56,7 @@ public class BearWorkshop implements BearWorkshopInterface{
         }
 
         bear.price += bear.stuff.price;
-        bear.price *= bear.casing.priceModifier;
+        bear.price += bear.casing.priceModifier;
 
         return bear.price;
     }
