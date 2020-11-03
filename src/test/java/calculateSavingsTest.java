@@ -1,53 +1,20 @@
-import main.java.*;
+import static org.junit.Assert.assertEquals;
+
+import java.lang.reflect.Constructor;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
 
-import java.lang.reflect.Constructor;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import main.java.Bear;
+import main.java.BearWorkshop;
+import main.java.Clothing;
+import main.java.Embroidery;
+import main.java.NoiseMaker;
+import main.java.Stuffing;
+import main.java.Stuffing.stuffing;
 
-//import main.java.BearWorkshop;
-
-import static org.junit.Assert.*;
-
-/***
- * This class provides a framework to implement black box tests for various
- * implementations of the BearWorkshop Class. The BearWorkshop is having a
- * blowout sale and is offering the following savings.
- *
- * Bears are Buy 2 bears, get 1 free. It is 10% off the cost of a bear when a
- * single bear has 10 or more accessories (Note that embroidery, stuffing, and
- * the material used for the bear casing is not considered an accessory).
- * Additionally, clothes are buy 2, get one free on each bear.
- */
-@RunWith(Parameterized.class)
-public class GivenBlackBox {
-	private Class<BearWorkshop> classUnderTest;
-
-	@SuppressWarnings("unchecked")
-	public GivenBlackBox(Object classUnderTest) {
-		this.classUnderTest = (Class<BearWorkshop>) classUnderTest;
-	}
-
-	@Parameters
-	public static Collection<Object[]> courseGradesUnderTest() {
-		Object[][] classes = { { BearWorkshop1.class }, { BearWorkshop2.class }, { BearWorkshop3.class },
-				{ BearWorkshop4.class }, { BearWorkshop5.class }
-
-		};
-		return Arrays.asList(classes);
-	}
-
-	private BearWorkshop createBearWorkshop(String name) throws Exception {
-		Constructor<BearWorkshop> constructor = classUnderTest.getConstructor(String.class);
-		return constructor.newInstance(name);
-	}
+public class calculateSavingsTest {
 
 	BearWorkshop oneBear;
 	Double oneBearExpected;
@@ -57,6 +24,11 @@ public class GivenBlackBox {
 
 	BearWorkshop twoBears;
 	Double twoBearsExpected;
+
+	private BearWorkshop createBearWorkshop(String name) throws Exception {
+		BearWorkshop temp = new BearWorkshop(name);
+		return temp;
+	}
 
 	@Before
 	public void setUp() throws Exception {
@@ -81,7 +53,6 @@ public class GivenBlackBox {
 	@After
 	public void tearDown() throws Exception {
 	}
-
 	// sample test
 
 	/**
@@ -90,6 +61,7 @@ public class GivenBlackBox {
 	 */
 	@Test
 	public void oneBearNoSavings() {
+		oneBear.addBear(new Bear());
 		Double ans = oneBear.calculateSavings();
 		assertEquals(oneBearExpected, ans);
 	}
@@ -161,29 +133,31 @@ public class GivenBlackBox {
 	}
 
 	@Test
-	public void oneBearManyAccessories(){
+	public void oneBearManyAccessories() {
 		BearWorkshop bears = null;
 		try {
 			bears = createBearWorkshop("DC");
 		} catch (Exception e) {
 		}
+
 		Bear customBear = new Bear(Stuffing.stuffing.BASE);
-		bears.addBear(customBear);
-		customBear.clothing.add(new Clothing(5, "Hat2"));
-		customBear.clothing.add(new Clothing(5, "Hat")); 
-		customBear.clothing.add(new Clothing(5, "Sunglasses")); 
-		customBear.clothing.add(new Clothing(4, "Shoes")); 
 		customBear.clothing.add(new Clothing(3, "Jacket"));
 		customBear.clothing.add(new Clothing(2, "Glove"));
-		customBear.clothing.add(new Clothing(2, "OtherGlove"));
-		customBear.noisemakers.add(new NoiseMaker()); 
-		customBear.noisemakers.add(new NoiseMaker("Label1", "Recording1", NoiseMaker.Location.LEFT_FOOT)); 
+		customBear.clothing.add(new Clothing(1, "OtherGlove"));
+
+		customBear.clothing.add(new Clothing(4, "Shoes"));
+		customBear.clothing.add(new Clothing(5, "Hat2"));
+		customBear.clothing.add(new Clothing(5, "Hat"));
+		customBear.clothing.add(new Clothing(5, "Sunglasses"));
+		customBear.noisemakers.add(new NoiseMaker());
+		customBear.noisemakers.add(new NoiseMaker("Label1", "Recording1", NoiseMaker.Location.LEFT_FOOT));
 		customBear.noisemakers.add(new NoiseMaker("Label2", "Recording2", NoiseMaker.Location.LEFT_HAND));
 		customBear.noisemakers.add(new NoiseMaker("Label3", "Recording3", NoiseMaker.Location.RIGHT_FOOT));
 		customBear.noisemakers.add(new NoiseMaker("Label4", "Recording4", NoiseMaker.Location.RIGHT_HAND));
-		Double rawCost = bears.getRawCost(customBear); 
-		Double bearsExpected = 4+ 0.1*(rawCost-4); //4 + 0.1(raw cost)
-		Double ans = bears.calculateSavings();
+		bears.addBear(customBear);
+		double cost = bears.getCost(customBear);
+		double bearsExpected = 3 + (0.1 * (30+5+5+5+4+3+10+5+5+5+5));
+		double ans = bears.calculateSavings();
 		assertEquals(bearsExpected, ans, 0.005);
 	}
 	@Test //Boundary Test
@@ -218,7 +192,7 @@ public class GivenBlackBox {
 		Double ans = bears.getCost(customBear);
 		assertEquals(bearsExpected, ans, 0.005);
 	}
-	
+
 	@Test //Boundary test
 	public void oneBearmediumembroidery() {
 		BearWorkshop bears = null;
@@ -253,37 +227,7 @@ public class GivenBlackBox {
 		Double ans2 = bears.getRawCost(customBear); //Class5 is not adding cost for embroidery 
 		assertEquals(bearsExpected, ans, 0.005);
 	}
-	@Test
-	public void explosionTest() {
-		BearWorkshop bears = null;
-		try {
-			bears = createBearWorkshop("DC");
-		} catch (Exception e) {
-		}
-		Bear customBear = new Bear(Stuffing.stuffing.BASE);
-		customBear.ink = new Embroidery("TESTSTRINGLARGETESTSTRINGLARGETESTSTRINGLARGETESTSTRINGLARGETESTSTRINGLARGE");
-		customBear.clothing.add(new Clothing(5, "Hat2"));
-		customBear.clothing.add(new Clothing(5, "Hat")); 
-		customBear.clothing.add(new Clothing(5, "Sunglasses")); 
-		customBear.clothing.add(new Clothing(4, "Shoes")); 
-		customBear.clothing.add(new Clothing(3, "Jacket"));
-		customBear.clothing.add(new Clothing(2, "Glove"));
-		customBear.clothing.add(new Clothing(2, "OtherGlove"));
-		customBear.clothing.add(new Clothing(2, "OtherGlove2"));
-		customBear.noisemakers.add(new NoiseMaker("Label1", "Recording1", NoiseMaker.Location.LEFT_FOOT)); 
-		customBear.noisemakers.add(new NoiseMaker("Label2", "Recording2", NoiseMaker.Location.LEFT_HAND));
-		customBear.noisemakers.add(new NoiseMaker("Label3", "Recording3", NoiseMaker.Location.RIGHT_FOOT));
-		customBear.noisemakers.add(new NoiseMaker("Label4", "Recording4", NoiseMaker.Location.RIGHT_HAND));
+	
 
-		
-		Double bearsExpected = 4.0; // no savings
-		Double ans = bears.calculateSavings();
-		Double ans2 = bears.getRawCost(customBear);
-		Double ans3 = bears.getCost(customBear);
-		
-		//System.out.println(ans2 + " raw sep cost" + ans3);
-		assertEquals(bearsExpected, ans, 0.005);
-	}
-	
-	
+
 }

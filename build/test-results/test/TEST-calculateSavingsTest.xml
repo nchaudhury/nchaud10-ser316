@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="calculateSavingsTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2020-11-03T05:54:02" hostname="VIEWTENDO" time="0.016">
+  <properties/>
+  <testcase name="oneBearTesttwoClothing" classname="calculateSavingsTest" time="0.003"/>
+  <testcase name="oneBearManyAccessories" classname="calculateSavingsTest" time="0.001"/>
+  <testcase name="oneBearTest3clothingsExpectSaving" classname="calculateSavingsTest" time="0.0"/>
+  <testcase name="twoBearNoSavings" classname="calculateSavingsTest" time="0.0"/>
+  <testcase name="oneBearNOembroidery" classname="calculateSavingsTest" time="0.001"/>
+  <testcase name="threeBearsSaveOnCheapest" classname="calculateSavingsTest" time="0.001"/>
+  <testcase name="oneBearLargeEmbroidery" classname="calculateSavingsTest" time="0.0"/>
+  <testcase name="oneBearTestoneClothing" classname="calculateSavingsTest" time="0.0"/>
+  <testcase name="oneBearmediumembroidery" classname="calculateSavingsTest" time="0.001"/>
+  <testcase name="oneBearsmallembroidery" classname="calculateSavingsTest" time="0.0"/>
+  <testcase name="oneBearNoSavings" classname="calculateSavingsTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

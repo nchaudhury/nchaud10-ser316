@@ -6,7 +6,7 @@ public class Casing {
     String description;
 
     public Casing() {
-        this(1.00, "Default outer shell");
+        this(0.00, "Default outer shell");
     }
 
     public Casing(double price, String descr) {
