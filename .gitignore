@@ -29,3 +29,11 @@ hs_err_pid*
 # OS directory artifacts
 *.DS_Store
 /bin/
+### Gradle ###
+.gradle
+/build/
+.gradle
+**/build/
+!src/**/build/
+# Ignore Gradle GUI config
+gradle-app.setting
