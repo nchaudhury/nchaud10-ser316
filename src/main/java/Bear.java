@@ -9,7 +9,7 @@ public class Bear implements Comparable<Bear>{
     public Embroidery ink; 
     public LinkedList<NoiseMaker> noisemakers; // accessory
     public LinkedList<Clothing> clothing; // accessory
-    double price;
+    double price = 0.0;
     // bear has a shell (requ)
     // bear has stuffing (req)
     // bear has a tattoo/emroider or not (opt)
@@ -22,7 +22,7 @@ public class Bear implements Comparable<Bear>{
         noisemakers = new LinkedList<>();
         clothing = new LinkedList<>();
         ink = new Embroidery("");
-        price = 0;
+        price = 0.0;
     }
 
     public Bear(stuffing stuff) {
@@ -31,7 +31,7 @@ public class Bear implements Comparable<Bear>{
         noisemakers = new LinkedList<>();
         clothing = new LinkedList<>();
         ink = new Embroidery("");
-        price = 0;
+        price = 0.0;
     }
 
     public void setPrice(double incomingPrice) {

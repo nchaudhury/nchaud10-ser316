@@ -11,7 +11,7 @@ public class Main {
         Bear bear2 = new Bear(stuffing.BASE);
         Bear bear3 = new Bear(stuffing.DOWN);
         
-
+        bear1.casing = new Casing(2, "expensive casing");
         
         
         BearWorkshop workshop = new BearWorkshop("AZ");
@@ -39,6 +39,13 @@ public class Main {
         
         bear1.clothing.add(new Clothing(5, "Cool sunglasses"));
         System.out.println("Bear with two clothing object");
-        System.out.println(workshop.getRawCost(bear1));
+        bear1.clothing.add(new Clothing(5, "Hat2"));
+        bear1.clothing.add(new Clothing(5, "Hat")); 
+        bear1.clothing.add(new Clothing(5, "Sunglasses")); 
+        bear1.clothing.add(new Clothing(4, "Shoes")); 
+        bear1.clothing.add(new Clothing(3, "Jacket"));
+        bear1.clothing.add(new Clothing(2, "Glove"));
+        bear1.clothing.add(new Clothing(2, "OtherGlove"));
+        System.out.println(workshop.calculateSavings());
     }
 }
