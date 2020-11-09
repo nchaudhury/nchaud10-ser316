@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="calculateSavingsTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2020-11-09T20:45:02" hostname="VIEWTENDO" time="0.022">
+<testsuite name="calculateSavingsTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2020-11-09T20:49:30" hostname="VIEWTENDO" time="0.032">
   <properties/>
-  <testcase name="oneBearTesttwoClothing" classname="calculateSavingsTest" time="0.014"/>
-  <testcase name="oneBearManyAccessories" classname="calculateSavingsTest" time="0.004"/>
-  <testcase name="oneBearTest3clothingsExpectSaving" classname="calculateSavingsTest" time="0.001"/>
-  <testcase name="twoBearNoSavings" classname="calculateSavingsTest" time="0.0"/>
-  <testcase name="oneBearNOembroidery" classname="calculateSavingsTest" time="0.001"/>
-  <testcase name="threeBearsSaveOnCheapest" classname="calculateSavingsTest" time="0.0"/>
+  <testcase name="oneBearTesttwoClothing" classname="calculateSavingsTest" time="0.017"/>
+  <testcase name="oneBearManyAccessories" classname="calculateSavingsTest" time="0.005"/>
+  <testcase name="oneBearTest3clothingsExpectSaving" classname="calculateSavingsTest" time="0.0"/>
+  <testcase name="twoBearNoSavings" classname="calculateSavingsTest" time="0.001"/>
+  <testcase name="oneBearNOembroidery" classname="calculateSavingsTest" time="0.0"/>
+  <testcase name="threeBearsSaveOnCheapest" classname="calculateSavingsTest" time="0.001"/>
   <testcase name="oneBearLargeEmbroidery" classname="calculateSavingsTest" time="0.0"/>
   <testcase name="oneBearTestoneClothing" classname="calculateSavingsTest" time="0.0"/>
   <testcase name="oneBearmediumembroidery" classname="calculateSavingsTest" time="0.001"/>
