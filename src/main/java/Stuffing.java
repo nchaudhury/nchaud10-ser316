@@ -1,16 +1,24 @@
 package main.java;
 
+/**
+ * Basic Stuffing class.
+ *
+ */
+
 public class Stuffing {
     public enum stuffing {
-        BASE,
-        DOWN,
-        FOAM
+        BASE, DOWN, FOAM
     }
 
     stuffing polyStuffing;
     int price;
-
-    public Stuffing (stuffing interiorStuffing) {
+    
+    /**
+     * Basic Stuffing Constructor.
+     *
+     */
+    
+    public Stuffing(stuffing interiorStuffing) {
 
         switch (interiorStuffing) {
             case BASE:
@@ -24,6 +32,10 @@ public class Stuffing {
             case FOAM:
                 this.polyStuffing = stuffing.FOAM;
                 this.price = 50;
+                break;
+            default:
+                this.polyStuffing = stuffing.BASE;
+                this.price = 30;
                 break;
         }
     }

@@ -1,5 +1,10 @@
 package main.java;
 
+/**
+ * Basic Noisemaker class.
+ *
+ */
+
 public class NoiseMaker {
     public double price;
     String label;
@@ -10,7 +15,12 @@ public class NoiseMaker {
     public NoiseMaker() {
         this("Default Noise", "I wuv you", Location.CENTERBODY);
     }
-
+    
+    /**
+     * Basic Noisemaker constructor using label, recoring, and location.
+     *
+     */
+    
     public NoiseMaker(String label, String recording,
                       Location location) {
         this.label = label;

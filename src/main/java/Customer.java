@@ -3,8 +3,9 @@ package main.java;
 import java.util.UUID;
 
 /**
- * This a class for Customer in the Bear Workshop.
+ * This a class for customer in the bear Workshop.
  */
+
 public class Customer {
     int age;
 
@@ -25,7 +26,8 @@ public class Customer {
 
     /**
      * Parameterized ctor for Customers
-     * @param age int age of customer
+     * 
+     * @param age      int age of customer
      * @param custumer reference to guardian or null
      */
     public Customer(int age, String state, Customer custumer) {
@@ -35,7 +37,5 @@ public class Customer {
 
         this.state = state;
     }
-
-
 
 }
