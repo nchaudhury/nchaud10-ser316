@@ -55,8 +55,9 @@ spotbugsMain {
          xml.enabled = false
          html.enabled = true
      }
+	 
  }
- spotbugs {
+spotbugs {
      toolVersion = '4.0.0-beta4'
      ignoreFailures = true
      showProgress = true

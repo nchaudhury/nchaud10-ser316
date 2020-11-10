@@ -3,7 +3,7 @@ package main.java;
 import java.util.UUID;
 
 /**
- * This a class for customer in the bear Workshop.
+ * This a class for customer in the bear workshop.
  */
 
 public class Customer {
