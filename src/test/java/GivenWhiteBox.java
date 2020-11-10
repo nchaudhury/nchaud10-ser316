@@ -92,7 +92,7 @@ public class GivenWhiteBox {
         double expectedAns = raw - savings;
 
         assertEquals(bear2, 40, 0.05);
-        assertEquals(bear3, 76.5, 0.05);
+        assertEquals(bear3, 73.8, 0.05);
         assertEquals(bear4, 37, 0.05);
     }
 

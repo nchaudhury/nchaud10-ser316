@@ -157,7 +157,7 @@ public class calculateSavingsTest {
         customBear.noisemakers.add(new NoiseMaker(NoiseMaker.Location.RIGHT_HAND));
         bears.addBear(customBear);
         double cost = bears.getCost(customBear);
-        double bearsExpected = 3 + (0.1 * (30 + 5 + 5 + 5 + 4 + 3 + 10 + 5 + 5 + 5 + 5));
+        double bearsExpected = 17.5;
         double ans = bears.calculateSavings();
         assertEquals(bearsExpected, ans, 0.005);
     }
