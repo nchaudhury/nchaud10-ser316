@@ -89,15 +89,19 @@ public class Bear implements Comparable<Bear> {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
+        if (this == obj) {
+            return true; 
+        }
+        if (obj == null) {
+            return false; 
+        }
+        if (getClass() != obj.getClass()) {
+            return false; 
+        }
         Bear other = (Bear) obj;
-        if (Double.doubleToLongBits(price) != Double.doubleToLongBits(other.price))
-            return false;
+        if (Double.doubleToLongBits(price) != Double.doubleToLongBits(other.price)) {
+            return false; 
+        }
         return true;
     }
 }
