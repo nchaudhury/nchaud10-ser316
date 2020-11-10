@@ -1,29 +1,37 @@
 package main.java;
 
+/**
+ * Basic Stuffing class.
+ *
+ */
+
 public class Stuffing {
-    public enum stuffing {
-        BASE,
-        DOWN,
-        FOAM
+    public enum StuffingEnum {  //SER316 TASK 2 SPOTBUGS FIX
+        BASE, DOWN, FOAM
     }
 
-    stuffing polyStuffing;
+    //SER316 TASK 2 SPOTBUGS FIX
     int price;
-
-    public Stuffing (stuffing interiorStuffing) {
+    
+    /**
+     * Basic Stuffing Constructor.
+     *
+     */
+    
+    public Stuffing(StuffingEnum interiorStuffing) {  //SER316 TASK 2 SPOTBUGS FIX
 
         switch (interiorStuffing) {
             case BASE:
-                this.polyStuffing = stuffing.BASE;
                 this.price = 30;
                 break;
             case DOWN:
-                this.polyStuffing = stuffing.DOWN;
                 this.price = 40;
                 break;
             case FOAM:
-                this.polyStuffing = stuffing.FOAM;
                 this.price = 50;
+                break;
+            default:
+                this.price = 30;  //SER316 TASK 2 SPOTBUGS FIX
                 break;
         }
     }

@@ -3,16 +3,16 @@ package main.java;
 import java.util.UUID;
 
 /**
- * This a class for Customer in the Bear Workshop.
+ * This a class for customer in the bear workshop.
  */
+
 public class Customer {
     int age;
 
     // customer has a name and a customer id
     Customer parent;
-    String customer_id;
 
-    // Customer lives in a state
+    // Customer lives in a state  //SER316 TASK 2 SPOTBUGS FIX
     public String state;
 
     /**
@@ -25,17 +25,16 @@ public class Customer {
 
     /**
      * Parameterized ctor for Customers
-     * @param age int age of customer
+     * 
+     * @param age      int age of customer
      * @param custumer reference to guardian or null
      */
-    public Customer(int age, String state, Customer custumer) {
+    public Customer(int age, String state, Customer custumer) {  //SER316 TASK 2 SPOTBUGS FIX
         this.parent = custumer;
         this.age = age;
-        this.customer_id = UUID.randomUUID().toString();
+
 
         this.state = state;
     }
-
-
 
 }
