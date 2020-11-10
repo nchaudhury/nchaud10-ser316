@@ -1,5 +1,4 @@
 plugins {
->>>>>>> staticanalysis
      id "com.github.spotbugs" version "4.5.1"
      id "checkstyle"
  }
@@ -44,9 +43,7 @@ test{
  }
  checkstyle {
      toolVersion = "8.8"
-<<<<<<< HEAD
- }
-=======
+
 }
 
 
@@ -54,15 +51,7 @@ test{
 // Configure SpotBugs
 ///////////////////////////////////////////////////////////////////////
 // To generate an HTML report instead of XML
-<<<<<<< HEAD
- spotbugsMain {
-     reports {
-         xml.enabled = false
-         html.enabled = true
-     }
- }
- spotbugs {
-=======
+
 spotbugsMain {
     reports {
          xml.enabled = false
@@ -71,7 +60,6 @@ spotbugsMain {
 	 
  }
 spotbugs {
->>>>>>> staticanalysis
      toolVersion = '4.0.4'
      ignoreFailures = true
      showProgress = true
