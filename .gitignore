@@ -37,5 +37,7 @@ hs_err_pid*
 !src/**/build/
 # Ignore Gradle GUI config
 gradle-app.setting
-# Spot Bugs #
+# SpotBugs #
+.settings
 .settings/
+.settings/*
