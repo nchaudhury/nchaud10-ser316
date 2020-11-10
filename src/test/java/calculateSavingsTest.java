@@ -12,7 +12,7 @@ import main.java.Clothing;
 import main.java.Embroidery;
 import main.java.NoiseMaker;
 import main.java.Stuffing;
-import main.java.Stuffing.stuffing;
+import main.java.Stuffing.StuffingEnum;
 
 public class calculateSavingsTest {
 
@@ -35,17 +35,17 @@ public class calculateSavingsTest {
 
         // One Bear base stuffing, no saving expected
         oneBear = createBearWorkshop("NY");
-        oneBear.addBear(new Bear(Stuffing.stuffing.BASE));
+        oneBear.addBear(new Bear(Stuffing.StuffingEnum.BASE));
         oneBearExpected = 0.00; // no savings
 
         // Three Bears expected to not pay for cheapest one
         threeBears = createBearWorkshop("AZ");
-        threeBears.addBear(new Bear(Stuffing.stuffing.BASE));
-        threeBears.addBear(new Bear(Stuffing.stuffing.DOWN));
-        threeBears.addBear(new Bear(Stuffing.stuffing.FOAM));
+        threeBears.addBear(new Bear(Stuffing.StuffingEnum.BASE));
+        threeBears.addBear(new Bear(Stuffing.StuffingEnum.DOWN));
+        threeBears.addBear(new Bear(Stuffing.StuffingEnum.FOAM));
         threeBearsExpected = 30.00;
         twoBears = createBearWorkshop("CA");
-        twoBears.addBear(new Bear(Stuffing.stuffing.BASE));
+        twoBears.addBear(new Bear(Stuffing.StuffingEnum.BASE));
         twoBears.addBear(new Bear());
         twoBearsExpected = 0.0;
     }
@@ -88,12 +88,12 @@ public class calculateSavingsTest {
             bears = createBearWorkshop("DC");
         } catch (Exception e) {
         }
-        Bear customBear = new Bear(Stuffing.stuffing.BASE);
+        Bear customBear = new Bear(Stuffing.StuffingEnum.BASE);
         bears.addBear(customBear);
 
-        customBear.clothing.add(new Clothing(4, "Hat"));
-        customBear.clothing.add(new Clothing(4, "Sunglasses"));
-        customBear.clothing.add(new Clothing(4, "Shoes"));
+        customBear.clothing.add(new Clothing(4));
+        customBear.clothing.add(new Clothing(4));
+        customBear.clothing.add(new Clothing(4));
 
         Double bearsExpected = 4.0;
         Double ans = bears.calculateSavings();
@@ -107,10 +107,10 @@ public class calculateSavingsTest {
             bears = createBearWorkshop("DC");
         } catch (Exception e) {
         }
-        Bear customBear = new Bear(Stuffing.stuffing.BASE);
+        Bear customBear = new Bear(Stuffing.StuffingEnum.BASE);
         bears.addBear(customBear);
 
-        customBear.clothing.add(new Clothing(5, "Hat"));
+        customBear.clothing.add(new Clothing(5));
         Double bearsExpected = 0.0; // no saving
         Double ans = bears.calculateSavings();
         assertEquals(bearsExpected, ans, 0.005);
@@ -123,11 +123,11 @@ public class calculateSavingsTest {
             bears = createBearWorkshop("DC");
         } catch (Exception e) {
         }
-        Bear customBear = new Bear(Stuffing.stuffing.BASE);
+        Bear customBear = new Bear(Stuffing.StuffingEnum.BASE);
         bears.addBear(customBear);
 
-        customBear.clothing.add(new Clothing(5, "Hat"));
-        customBear.clothing.add(new Clothing(5, "Sunglasses"));
+        customBear.clothing.add(new Clothing(5));
+        customBear.clothing.add(new Clothing(5));
         Double bearsExpected = 0.0; // no savings
         Double ans = bears.calculateSavings();
         assertEquals(bearsExpected, ans, 0.005);
@@ -141,20 +141,20 @@ public class calculateSavingsTest {
         } catch (Exception e) {
         }
 
-        Bear customBear = new Bear(Stuffing.stuffing.BASE);
-        customBear.clothing.add(new Clothing(3, "Jacket"));
-        customBear.clothing.add(new Clothing(2, "Glove"));
-        customBear.clothing.add(new Clothing(1, "OtherGlove"));
+        Bear customBear = new Bear(Stuffing.StuffingEnum.BASE);
+        customBear.clothing.add(new Clothing(3));
+        customBear.clothing.add(new Clothing(2));
+        customBear.clothing.add(new Clothing(1));
 
-        customBear.clothing.add(new Clothing(4, "Shoes"));
-        customBear.clothing.add(new Clothing(5, "Hat2"));
-        customBear.clothing.add(new Clothing(5, "Hat"));
-        customBear.clothing.add(new Clothing(5, "Sunglasses"));
+        customBear.clothing.add(new Clothing(4));
+        customBear.clothing.add(new Clothing(5));
+        customBear.clothing.add(new Clothing(5));
+        customBear.clothing.add(new Clothing(5));
         customBear.noisemakers.add(new NoiseMaker());
-        customBear.noisemakers.add(new NoiseMaker("Label1", "Recording1", NoiseMaker.Location.LEFT_FOOT));
-        customBear.noisemakers.add(new NoiseMaker("Label2", "Recording2", NoiseMaker.Location.LEFT_HAND));
-        customBear.noisemakers.add(new NoiseMaker("Label3", "Recording3", NoiseMaker.Location.RIGHT_FOOT));
-        customBear.noisemakers.add(new NoiseMaker("Label4", "Recording4", NoiseMaker.Location.RIGHT_HAND));
+        customBear.noisemakers.add(new NoiseMaker(NoiseMaker.Location.LEFT_FOOT));
+        customBear.noisemakers.add(new NoiseMaker(NoiseMaker.Location.LEFT_HAND));
+        customBear.noisemakers.add(new NoiseMaker(NoiseMaker.Location.RIGHT_FOOT));
+        customBear.noisemakers.add(new NoiseMaker(NoiseMaker.Location.RIGHT_HAND));
         bears.addBear(customBear);
         double cost = bears.getCost(customBear);
         double bearsExpected = 3 + (0.1 * (30 + 5 + 5 + 5 + 4 + 3 + 10 + 5 + 5 + 5 + 5));
@@ -169,7 +169,7 @@ public class calculateSavingsTest {
             bears = createBearWorkshop("DC");
         } catch (Exception e) {
         }
-        Bear customBear = new Bear(Stuffing.stuffing.BASE);
+        Bear customBear = new Bear(Stuffing.StuffingEnum.BASE);
         customBear.ink = new Embroidery("");
         bears.addBear(customBear);
 
@@ -185,7 +185,7 @@ public class calculateSavingsTest {
             bears = createBearWorkshop("DC");
         } catch (Exception e) {
         }
-        Bear customBear = new Bear(Stuffing.stuffing.BASE);
+        Bear customBear = new Bear(Stuffing.StuffingEnum.BASE);
         customBear.ink = new Embroidery("T");
         bears.addBear(customBear);
 
@@ -201,7 +201,7 @@ public class calculateSavingsTest {
             bears = createBearWorkshop("DC");
         } catch (Exception e) {
         }
-        Bear customBear = new Bear(Stuffing.stuffing.BASE);
+        Bear customBear = new Bear(Stuffing.StuffingEnum.BASE);
         customBear.ink = new Embroidery("TESTSTRINGMEDIUM");
         bears.addBear(customBear);
 
@@ -217,7 +217,7 @@ public class calculateSavingsTest {
             bears = createBearWorkshop("DC");
         } catch (Exception e) {
         }
-        Bear customBear = new Bear(Stuffing.stuffing.BASE);
+        Bear customBear = new Bear(Stuffing.StuffingEnum.BASE);
         customBear.ink = new Embroidery("TESTSTRINGLARGETESTSTRINGLARGETESTSTRINGLARGETESTSTRINGLARGETESTSTRINGLARGE");
         bears.addBear(customBear);
 

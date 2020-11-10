@@ -50,26 +50,26 @@ public class GivenWhiteBox {
             bears = createBearWorkshop("AZ");
         } catch (Exception e) {
         }
-        Bear customBear = new Bear(Stuffing.stuffing.BASE); // no clothes, no accessories, should be 30 and free.
-        Bear customBear2 = new Bear(Stuffing.stuffing.BASE); // will have 2 clothes no discount
-        customBear2.clothing.add(new Clothing(5, "TestClothing"));
-        customBear2.clothing.add(new Clothing(5, "TestClothing2"));
+        Bear customBear = new Bear(Stuffing.StuffingEnum.BASE); // no clothes, no accessories, should be 30 and free.
+        Bear customBear2 = new Bear(Stuffing.StuffingEnum.BASE); // will have 2 clothes no discount
+        customBear2.clothing.add(new Clothing(5));
+        customBear2.clothing.add(new Clothing(5));
 
-        Bear customBear3 = new Bear(Stuffing.stuffing.BASE); // will have 7 clothes and 5 noise makers - 2 free clothes
+        Bear customBear3 = new Bear(Stuffing.StuffingEnum.BASE); // will have 7 clothes and 5 noise makers - 2 free clothes
                                                              // and 10 percent off
-        customBear3.clothing.add(new Clothing(4, "TestClothing"));
-        customBear3.clothing.add(new Clothing(3, "TestClothing2"));
-        customBear3.clothing.add(new Clothing(5, "TestClothing3"));
-        customBear3.clothing.add(new Clothing(5, "TestClothing4"));
-        customBear3.clothing.add(new Clothing(5, "TestClothing5"));
-        customBear3.clothing.add(new Clothing(5, "TestClothing6"));
-        customBear3.clothing.add(new Clothing(5, "TestClothing7"));
+        customBear3.clothing.add(new Clothing(4));
+        customBear3.clothing.add(new Clothing(3));
+        customBear3.clothing.add(new Clothing(5));
+        customBear3.clothing.add(new Clothing(5));
+        customBear3.clothing.add(new Clothing(5));
+        customBear3.clothing.add(new Clothing(5));
+        customBear3.clothing.add(new Clothing(5));
         customBear3.noisemakers.add(new NoiseMaker()); // 10 bucks
-        customBear3.noisemakers.add(new NoiseMaker("Label1", "Recording1", NoiseMaker.Location.LEFT_FOOT)); // 5
-        customBear3.noisemakers.add(new NoiseMaker("Label2", "Recording2", NoiseMaker.Location.LEFT_HAND)); // 5
-        customBear3.noisemakers.add(new NoiseMaker("Label3", "Recording3", NoiseMaker.Location.RIGHT_FOOT)); // 5
-        customBear3.noisemakers.add(new NoiseMaker("Label4", "Recording4", NoiseMaker.Location.RIGHT_HAND)); // 5
-        Bear customBear4 = new Bear(Stuffing.stuffing.BASE); // Some embroidery to check if that works full price no
+        customBear3.noisemakers.add(new NoiseMaker(NoiseMaker.Location.LEFT_FOOT)); // 5
+        customBear3.noisemakers.add(new NoiseMaker(NoiseMaker.Location.LEFT_HAND)); // 5
+        customBear3.noisemakers.add(new NoiseMaker(NoiseMaker.Location.RIGHT_FOOT)); // 5
+        customBear3.noisemakers.add(new NoiseMaker(NoiseMaker.Location.RIGHT_HAND)); // 5
+        Bear customBear4 = new Bear(Stuffing.StuffingEnum.BASE); // Some embroidery to check if that works full price no
                                                              // discount
         customBear4.ink = new Embroidery("TestInk");
 

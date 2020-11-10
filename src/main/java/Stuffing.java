@@ -6,11 +6,11 @@ package main.java;
  */
 
 public class Stuffing {
-    public enum stuffing {
+    public enum StuffingEnum {  //SER316 TASK 2 SPOTBUGS FIX
         BASE, DOWN, FOAM
     }
 
-    stuffing polyStuffing;
+    //SER316 TASK 2 SPOTBUGS FIX
     int price;
     
     /**
@@ -18,24 +18,20 @@ public class Stuffing {
      *
      */
     
-    public Stuffing(stuffing interiorStuffing) {
+    public Stuffing(StuffingEnum interiorStuffing) {  //SER316 TASK 2 SPOTBUGS FIX
 
         switch (interiorStuffing) {
             case BASE:
-                this.polyStuffing = stuffing.BASE;
                 this.price = 30;
                 break;
             case DOWN:
-                this.polyStuffing = stuffing.DOWN;
                 this.price = 40;
                 break;
             case FOAM:
-                this.polyStuffing = stuffing.FOAM;
                 this.price = 50;
                 break;
             default:
-                this.polyStuffing = stuffing.BASE;
-                this.price = 30;
+                this.price = 30;  //SER316 TASK 2 SPOTBUGS FIX
                 break;
         }
     }

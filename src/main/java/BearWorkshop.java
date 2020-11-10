@@ -40,7 +40,8 @@ public class BearWorkshop implements BearWorkshopInterface {
     @Override
     public double getCost(Bear bear) {
         Collections.sort(bear.clothing);
-        int numFree = (int) Math.floor(bear.clothing.size() / 3); // floored out
+        double numFreeTemp = bear.clothing.size() / (double)(3);
+        int numFree = (int) Math.floor(numFreeTemp); // floored out //SER316 TASK 2 SPOTBUGS FIX
         ArrayList<Clothing> freeClothes = new ArrayList<>();
 
         List<Clothing> tempClothes = bear.clothing;
@@ -196,7 +197,8 @@ public class BearWorkshop implements BearWorkshopInterface {
             ArrayList<Clothing> freeClothes = new ArrayList<>();
             if (bear.clothing.size() > 0) {
                 LinkedList<Clothing> tempClothes = bear.clothing;
-                int numFree = (int) Math.floor(tempClothes.size() / 3);
+                double numFreeTemp = tempClothes.size() / (double)3;
+                int numFree = (int) Math.floor(numFreeTemp); //SER316 TASK 2 SPOTBUGS FIX
                 // Buy 2 get one free for now
 
                 for (int i = tempClothes.size() - 1; i >= 0; i--) { // Sort did not work on clothing.
@@ -234,7 +236,8 @@ public class BearWorkshop implements BearWorkshopInterface {
 
         if (this.BearCart.size() > 2) {
             // add buy 2 get 1 free functionality
-            int temp = (int) Math.floor(this.BearCart.size() / 3);
+            double temp2 = this.BearCart.size() / (double) 3 ;
+            int temp = (int) Math.floor(temp2);
             for (int i = 0; i < this.BearCart.size(); i++) {
                 if (i < temp) {
                     runningTotalSaved -= this.BearCart.get(i).price;

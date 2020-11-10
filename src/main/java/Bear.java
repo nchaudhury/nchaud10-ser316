@@ -1,7 +1,8 @@
 package main.java;
 
 import java.util.LinkedList;
-import main.java.Stuffing.stuffing;
+
+import main.java.Stuffing.StuffingEnum;
 
 /**
  * Basic Bear Class.
@@ -26,11 +27,11 @@ public class Bear implements Comparable<Bear> {
      */
     
     public Bear() {
-        this.casing = new Casing();
-        this.stuff = new Stuffing(stuffing.BASE);
-        noisemakers = new LinkedList<>();
-        clothing = new LinkedList<>();
-        ink = new Embroidery("");
+        this.casing = new Casing(); //SER316 TASK 2 SPOTBUGS FIX
+        this.stuff = new Stuffing(StuffingEnum.BASE); //SER316 TASK 2 SPOTBUGS FIX
+        noisemakers = new LinkedList<>(); 
+        clothing = new LinkedList<>(); //SER316 TASK 2 SPOTBUGS FIX
+        ink = new Embroidery(""); //SER316 TASK 2 SPOTBUGS FIX
         price = 0.0;
     }
     
@@ -39,7 +40,7 @@ public class Bear implements Comparable<Bear> {
      *
      */
     
-    public Bear(stuffing stuff) {
+    public Bear(StuffingEnum stuff) {
         this.casing = new Casing();
         this.stuff = new Stuffing(stuff);
         noisemakers = new LinkedList<>();
@@ -74,5 +75,29 @@ public class Bear implements Comparable<Bear> {
     @Override
     public int compareTo(Bear bear) {
         return new Double(this.price).compareTo(bear.price);
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        long temp;
+        temp = Double.doubleToLongBits(price);
+        result = prime * result + (int) (temp ^ (temp >>> 32));
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Bear other = (Bear) obj;
+        if (Double.doubleToLongBits(price) != Double.doubleToLongBits(other.price))
+            return false;
+        return true;
     }
 }
