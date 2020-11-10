@@ -60,10 +60,9 @@ public class BearWorkshop implements BearWorkshopInterface {
         }
 
         bear.price += bear.stuff.price;
-        bear.price += bear.casing.priceModifier; //changed to be + from multiplication. It does not make sense for the price of the clothing to go up at the end due to casing modifier.
-		if ((bear.clothing.size() + bear.noisemakers.size() - freeClothes.size()) >= 10) {
-			bear.price = bear.price - ((.1) * bear.price);
-		}
+
+        bear.price += bear.casing.priceModifier;
+
         return bear.price;
 	}
 
@@ -103,10 +102,8 @@ public class BearWorkshop implements BearWorkshopInterface {
 
 		}
 
-		if (!(bear.ink.embroidText.equals(""))) {
-			bearPrice += bear.ink.price;
 
-		}
+		
 
 		bearPrice += bear.stuff.price;
 		bearPrice += bear.casing.priceModifier;
