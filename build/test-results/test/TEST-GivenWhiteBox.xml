@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="GivenWhiteBox" tests="7" skipped="0" failures="0" errors="0" timestamp="2020-11-09T20:49:30" hostname="VIEWTENDO" time="0.004">
+<testsuite name="GivenWhiteBox" tests="7" skipped="0" failures="0" errors="0" timestamp="2020-12-04T04:07:07" hostname="VIEWTENDO" time="0.006">
   <properties/>
   <testcase name="addingCustomer" classname="GivenWhiteBox" time="0.001"/>
   <testcase name="checkoutOneBear" classname="GivenWhiteBox" time="0.001"/>
   <testcase name="testTaxCA" classname="GivenWhiteBox" time="0.0"/>
-  <testcase name="testTaxDC" classname="GivenWhiteBox" time="0.0"/>
-  <testcase name="testTaxNY" classname="GivenWhiteBox" time="0.001"/>
+  <testcase name="testTaxDC" classname="GivenWhiteBox" time="0.001"/>
+  <testcase name="testTaxNY" classname="GivenWhiteBox" time="0.0"/>
   <testcase name="testTaxVA" classname="GivenWhiteBox" time="0.001"/>
-  <testcase name="testingNodeCoverage" classname="GivenWhiteBox" time="0.0"/>
+  <testcase name="testingNodeCoverage" classname="GivenWhiteBox" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
